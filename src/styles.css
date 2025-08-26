@@ -1,0 +1,7 @@
+.widget {
+    background-color: black;
+    width: 400px;
+    height: 650px;
+    justify-self: center;
+    align-self: center;
+}
