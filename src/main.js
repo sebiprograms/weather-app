@@ -1,8 +1,18 @@
 import './styles.css';
 import keys from '../keys.json'
 
-const location = 'houston';
 const API_KEY = keys.API_KEY
+const searchButton = document.querySelector(".search")
+const input = document.querySelector(".text")
+
+if (localStorage.getItem("location") != null) {
+    // get previous search
+    getWeather(localStorage.getItem("location"), API_KEY)
+} else {
+    // set a default if no previous searches
+    getWeather('houston', API_KEY)
+}
+
 
 async function getWeather(location, API_KEY) {
     const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&key=${API_KEY}&contentType=json`, {mode: 'cors'})
@@ -20,11 +30,16 @@ async function getWeather(location, API_KEY) {
     description.textContent = data.description
 }
 
-const searchButton = document.querySelector(".search")
-const input = document.querySelector(".text")
+
 
 searchButton.addEventListener('click', () => {
     let location = document.querySelector(".text").value.toLowerCase()
-    console.log(location)
+    getWeather(location, API_KEY);
+    localStorage.setItem("location", location)
 })
-getWeather(location, API_KEY);
+
+searchButton.addEventListener("keydown" , () => {
+    let location = document.querySelector(".text").value.toLowerCase()
+    getWeather(location, API_KEY);
+    localStorage.setItem("location", location)
+})
