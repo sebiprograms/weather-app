@@ -37,9 +37,3 @@ searchButton.addEventListener('click', () => {
     getWeather(location, API_KEY);
     localStorage.setItem("location", location)
 })
-
-searchButton.addEventListener("keydown" , () => {
-    let location = document.querySelector(".text").value.toLowerCase()
-    getWeather(location, API_KEY);
-    localStorage.setItem("location", location)
-})
