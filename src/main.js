@@ -1,11 +1,11 @@
 import './styles.css';
-import API_KEY from '../keys.json'
+import keys from '../keys.json'
 
 const location = 'houston';
-
+const API_KEY = keys.API_KEY
 
 async function getWeather(location, API_KEY) {
-    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&key=KHMTTP5B2DZXPFTEXQ8TV7CST&contentType=json`, {mode: 'cors'})
+    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&key=${API_KEY}&contentType=json`, {mode: 'cors'})
     const data = await response.json()
     console.log(data)
 
