@@ -1,4 +1,6 @@
 .widget {
+    color: white;
+    text-align: center;
     background-color: black;
     width: 400px;
     height: 600px;
