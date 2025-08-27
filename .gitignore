@@ -1,4 +1,6 @@
-*.json
+#API keys
+keys.json
+
 # Logs
 logs
 *.log
