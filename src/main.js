@@ -9,10 +9,10 @@ async function getWeather(location, API_KEY) {
     const data = await response.json()
     console.log(data)
 
-    // Update widget location title
+    // Update widget info
     let position = document.querySelector(".location")
     position.textContent = location
-    // Update temperature displayed
+
     let temperature = document.querySelector(".temp")
     temperature.textContent = data.currentConditions.temp
 }
