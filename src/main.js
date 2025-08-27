@@ -14,10 +14,17 @@ async function getWeather(location, API_KEY) {
     position.textContent = location
 
     let temperature = document.querySelector(".temp")
-    temperature.textContent = data.currentConditions.temp
+    temperature.textContent = data.currentConditions.temp + "°F"
 
     let description = document.querySelector(".description")
     description.textContent = data.description
 }
 
+const searchButton = document.querySelector(".search")
+const input = document.querySelector(".text")
+
+searchButton.addEventListener('click', () => {
+    let location = document.querySelector(".text").value.toLowerCase()
+    console.log(location)
+})
 getWeather(location, API_KEY);
