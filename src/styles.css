@@ -1,7 +1,8 @@
 .widget {
     background-color: black;
     width: 400px;
-    height: 650px;
+    height: 600px;
+    border-radius: 7px;
     justify-self: center;
     align-self: center;
 }
