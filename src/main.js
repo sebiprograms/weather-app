@@ -5,6 +5,26 @@ const API_KEY = keys.API_KEY
 const searchButton = document.querySelector(".search")
 const input = document.querySelector(".text")
 
+
+const images = require.context('../icons', false, /\.(png|jpe?g|svg)$/);
+
+
+images.keys().forEach((filename) => {
+  const imgSrc = images(filename); // This gives the processed URL
+
+
+  // Example: add images to the page
+  const img = document.createElement("img");
+  img.src = imgSrc;
+  let length = filename.length
+  // gets rid of ./ in file name
+  img.classList.add(filename.slice(2,length))
+  document.body.appendChild(img);
+});
+
+
+
+
 if (localStorage.getItem("location") != null) {
     // get previous search
     getWeather(localStorage.getItem("location"), API_KEY)
@@ -36,4 +56,7 @@ searchButton.addEventListener('click', () => {
     let location = document.querySelector(".text").value.toLowerCase()
     getWeather(location, API_KEY);
     localStorage.setItem("location", location)
+
+    let conditions = data.icon 
+    console.log(icon)
 })
