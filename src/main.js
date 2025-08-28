@@ -20,9 +20,10 @@ function changeIcon(icon) {
         let length = filename.length
         let reverse = length * -1
         // gets rid of ./ in file name
-        var className = filename.slice(2,length).slice(reverse, length-6)
+        let className = filename.slice(2,length).slice(reverse, length-6)
         img.classList.add(className)
         if (className == icon) {
+            localStorage.setItem('iconName', className)
             location.after(img)
         }
     })
