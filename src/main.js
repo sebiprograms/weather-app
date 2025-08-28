@@ -10,10 +10,14 @@ const images = require.context('../icons', false, /\.(png|jpe?g|svg)$/);
 
 // creates img element for each icon
 function changeIcon(icon) {
-
+    let widget = document.querySelector('.widget')
+    if (widget.querySelector('img') != null){
+        let img = widget.querySelector('img')
+        img.remove()
+    }
     images.keys().forEach((filename) => {
+
         const imgSrc = images(filename); // This gives the processed URL
-        const widget = document.querySelector('.widget')
         let img = document.createElement("img");
         let location = document.querySelector('.location')
         img.src = imgSrc;
