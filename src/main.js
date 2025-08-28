@@ -24,7 +24,7 @@ async function getWeather(location, API_KEY) {
     position.textContent = location
 
     let temperature = document.querySelector(".temp")
-    temperature.textContent = data.currentConditions.temp + "°F"
+    temperature.textContent = data.currentConditions.temp + " °F"
 
     let description = document.querySelector(".description")
     description.textContent = data.description
